@@ -17,7 +17,8 @@ const Sidebar = ({
   onSelectUser,
   channelsApi,
   activeTextChannelId,
-  setActiveTextChannelId
+  setActiveTextChannelId,
+  ping = 0
 }) => {
   const isMod = profile.userNumber === MOD_USER_NUMBER;
   
@@ -236,9 +237,16 @@ const Sidebar = ({
                   </div>
                   <div style={{ minWidth: 0 }}>
                     <p style={{ color: 'var(--primary-color)', fontSize: '12px', fontWeight: 'bold', letterSpacing: '0.5px' }}>VOICE CONNECTED</p>
-                    <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                      {serverVoiceChannels.find(v => v.id === activeVoiceChannelId)?.name}
-                    </p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {serverVoiceChannels.find(v => v.id === activeVoiceChannelId)?.name}
+                      </p>
+                      {ping > 0 && (
+                        <span style={{ fontSize: '10px', fontWeight: 'bold', color: ping < 80 ? '#36d391' : ping < 150 ? '#ffd43b' : '#ff5252' }}>
+                          {ping} ms
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div onClick={stopVoice} className="hover-bg-red" style={{ padding: '8px', borderRadius: '8px', cursor: 'pointer', background: 'rgba(255,82,82,0.05)', flexShrink: 0 }}>

@@ -118,6 +118,7 @@ const App = () => {
           channelsApi={channelsApi}
           activeTextChannelId={activeTextChannelId}
           setActiveTextChannelId={setActiveTextChannelId}
+          ping={voice.ping}
         />
 
         {/* Chat Area */}
