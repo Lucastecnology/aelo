@@ -1,7 +1,7 @@
 {
   "name": "aelo",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Aelo Voice and Text Platform",
   "author": "Lucas",
   "type": "module",
@@ -26,6 +26,14 @@
     ],
     "win": {
       "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Aelo",
+      "deleteAppDataOnUninstall": false
     },
     "publish": [
       {
